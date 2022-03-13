@@ -40,16 +40,16 @@ while True: #yazılımımız çalıştığı sürece aşağıdaki işlemleri tek
 
      if len(cnts) > 0:
 
-		     c = max(cnts, key=cv2.contourArea)
-		     ((x, y), radius) = cv2.minEnclosingCircle(c)
-		     M = cv2.moments(c)
-		     center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+	c = max(cnts, key=cv2.contourArea)
+	((x, y), radius) = cv2.minEnclosingCircle(c)
+	M = cv2.moments(c)
+	center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
 
 
-		     if radius > 10: #algılanacak hedefin minumum boyutu
-			     cv2.circle(frame, (int(x), int(y)), int(radius),
-				 (0, 255, 255), 2)
-			     cv2.circle(frame, center, 5, (0, 0, 255), -1)
+	if radius > 10: #algılanacak hedefin minumum boyutu
+		cv2.circle(frame, (int(x), int(y)), int(radius),
+		(0, 255, 255), 2)
+		cv2.circle(frame, center, 5, (0, 0, 255), -1)
      else:
           x = 0
           y = 0
